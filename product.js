@@ -17,6 +17,18 @@ async function getProduct() {
             <button id="order-btn">Order</button>
         </article>
     `;
+
+    const orderBtn = document.getElementById('order-btn');
+    orderBtn.addEventListener('click', () => {
+        const productData = {
+            id: product.id,
+            title: product.title,
+            price: product.price,
+            image: product.image
+        };
+        localStorage.setItem('selectedProduct', JSON.stringify(productData));
+        console.log("Saved to localStorage");
+    });
 }
 
 if (productId) {
