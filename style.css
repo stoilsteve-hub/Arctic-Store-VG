@@ -8,7 +8,7 @@ body {
 body > header {
     text-align: center;
     padding: 20px;
-    background-color: #2D8CFF; /* Zoom App Blue */
+    background-color: #2D8CFF; /* Zoom App Blue??? Looks like it? */
     color: white;
 }
 
@@ -19,10 +19,10 @@ body > header {
 }
 
 .product-card {
-    border: 1px solid #ddd;
-    padding: 20px;
+    background-color: #ffffff;
+    padding: 30px; /* Added more whitespace/airiness */
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05); /* Very soft shadow, no heavy borders */
 }
 
 /* Product Name Header (Arctic Style) */
@@ -52,17 +52,18 @@ body > header {
     display: block;
     width: 100%;
     padding: 15px;
-    background-color: #0056b3;
+    background-color: #2D8CFF; /* Arctic Blue to match headers */
     color: white;
     font-size: 1.2em;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     margin-top: 15px;
+    transition: background-color 0.2s ease;
 }
 
 #order-btn:hover {
-    background-color: #004494;
+    background-color: #1e70d1; /* Slightly darker Arctic Blue */
 }
 
 /* Desktop styling */
