@@ -1,8 +1,9 @@
 /* style.css */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap');
 
 body {
-    font-family: sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 400;
     margin: 0;
 }
 
@@ -15,9 +16,10 @@ body > header {
 }
 
 body > header h1 {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    letter-spacing: 2px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
+    font-size: 3rem; /* bigger logo layout */
+    letter-spacing: 4px;
     text-transform: uppercase;
     margin: 0;
 }
@@ -43,7 +45,7 @@ body > header h1 {
     margin: 0;
     text-align: center;
     border-radius: 4px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-weight: 400;
     letter-spacing: 1px;
 }
@@ -67,6 +69,7 @@ body > header h1 {
     padding: 15px;
     background-color: #2D8CFF; /* Arctic Blue to match headers */
     color: white;
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 1.2em;
     border: none;
     border-radius: 5px;
