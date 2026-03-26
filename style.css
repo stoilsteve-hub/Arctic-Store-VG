@@ -1,6 +1,7 @@
-/* style.css */
+/* import font */
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap');
 
+/* global styles */
 main {
     padding: 30px 0;
 }
@@ -11,12 +12,11 @@ body {
     margin: 0;
 }
 
-/* Main Page Header */
+/* top header */
 body>header {
     text-align: center;
     padding: 20px;
     background-color: #2D8CFF;
-    /* Zoom App Blue??? Looks like it? */
     color: white;
 }
 
@@ -24,28 +24,19 @@ body>header h1 {
     font-family: 'Josefin Sans', sans-serif;
     font-weight: 300;
     font-size: 3rem;
-    /* bigger logo layout */
     letter-spacing: 4px;
     text-transform: uppercase;
     margin: 0;
 }
 
-#single-product-container {
-    max-width: 600px;
-    margin: 20px auto;
-    padding: 0 15px;
-}
-
+/* my product card */
 .product-card {
     background-color: #ffffff;
     padding: 30px;
-    /* Added more whitespace/airiness */
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    /* Very soft shadow, no heavy borders */
 }
 
-/* Product Name Header (Arctic Style) */
 .product-card h2 {
     background-color: #2D8CFF;
     color: white;
@@ -71,12 +62,12 @@ body>header h1 {
     color: #333;
 }
 
+/* order button */
 #order-btn {
     display: block;
     width: 100%;
     padding: 15px;
     background-color: #2D8CFF;
-    /* Arctic Blue to match headers */
     color: white;
     font-family: 'Josefin Sans', sans-serif;
     font-size: 1.2em;
@@ -89,17 +80,10 @@ body>header h1 {
 
 #order-btn:hover {
     background-color: #1e70d1;
-    /* Slightly darker Arctic Blue */
 }
 
-/* Desktop styling */
-@media (min-width: 768px) {
-    #single-product-container {
-        max-width: 800px;
-    }
-}
-/* Order Popup */
-.popup{
+/* Lukas popup (do not touch) */
+.popup {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -111,7 +95,7 @@ body>header h1 {
     pointer-events: none;
 }
 
-.popup .popupContent{
+.popup .popupContent {
     width: 500px;
     background-color: white;
     border-radius: 10px;
@@ -120,12 +104,12 @@ body>header h1 {
     transform: scale(0);
 }
 
-.popup.active .popupContent{
+.popup.active .popupContent {
     transform: scale(1);
     transition: .4s ease;
 }
 
-.popup button{
+.popup button {
     display: block;
     width: 100%;
     padding: 15px;

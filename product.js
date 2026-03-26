@@ -1,25 +1,31 @@
-// product.js
+// get id from url
 const urlParams = new URLSearchParams(window.location.search);
 const productId = urlParams.get('id');
 
+// fetch specific product
 async function getProduct() {
     const res = await fetch('https://fakestoreapi.com/products/' + productId);
     const product = await res.json();
     
+    // inject html
     document.getElementById('single-product-container').innerHTML = `
-        <article class="product-card">
-            <header>
+        <div class="product-card">
+            <div class="product-card-header">
                 <h2>${product.title}</h2>
-            </header>
-            <img src="${product.image}" alt="${product.title}">
-            <p class="price">${product.price}€</p>
-            <p class="description">${product.description}</p>
-            <button id="order-btn">Order</button>
-        </article>
+            </div>
+            <div class="product-card-body">
+                <img src="${product.image}" alt="${product.title}">
+                <p class="price">${product.price}€</p>
+                <p class="description">${product.description}</p>
+                <button id="order-btn">Order</button>
+            </div>
+        </div>
     `;
 
+    // order button logic
     const orderBtn = document.getElementById('order-btn');
     orderBtn.addEventListener('click', () => {
+        // save data for lukas
         const productData = {
             id: product.id,
             title: product.title,
@@ -28,11 +34,12 @@ async function getProduct() {
         };
         localStorage.setItem('selectedProduct', JSON.stringify(productData));
         
-        // Redirect to Lukas' order page
+        // redirect to order page
         window.location.href = 'js/Order popup/orderTest.html';
     });
 }
 
+// check if id exists
 if (productId) {
     getProduct();
 }
