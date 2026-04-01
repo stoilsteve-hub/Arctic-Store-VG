@@ -96,21 +96,31 @@ body>header h1 {
     opacity: 0;
     pointer-events: none;
     z-index: 1000;
+    transition: opacity .4s ease;
 }
 
+.popup.active {
+    opacity: 1;
+    pointer-events: auto;
+}
 
-.popup .popupContent {
+#popupBox {
     width: 500px;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    transform: scale(0);
 }
 
-.popup.active .popupContent {
-    transform: scale(1);
-    transition: .4s ease;
+.fade {
+    opacity: 0;
+    transition: opacity .4s ease;
+    pointer-events: none;
+}
+
+.fade.in {
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .popup button {
@@ -125,14 +135,30 @@ body>header h1 {
     border-radius: 5px;
     cursor: pointer;
     margin-top: 15px;
-    transition: background-color 0.2s ease;
+    transition: background-color .2s ease;
 }
 .popup button:hover{
      background-color: #1e70d1;
 }
 
-.popup.active {
-    opacity: 1;
-    pointer-events: auto;
-    transition: .4s ease;
+.inputWrong {
+    border: 2px solid red;
+}
+
+.inputCorrect {
+    border: 2px solid green;
+}
+
+.errorMessage {
+    color: red;
+}
+
+#formError {
+    color: red;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
 }

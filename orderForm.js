@@ -1,54 +1,100 @@
+const form = document.getElementById('orderForm');
+const successMessage = document.getElementById('successMessage');
+const formError = document.getElementById('formError');
+const popupbtn = document.querySelector('.popupbtn');
+const closebtn = document.querySelector('.closeButton');
+const successCloseButton = document.getElementById('successCloseButton');
 
-function showOrderPopup(){
-    const popup = document.querySelector('.popup');
-    const closeButton = document.querySelector('.closeButton');
+popupbtn.onclick = () => {
+    document.querySelector('.popup').classList.add('active');
+    form.classList.remove('hidden');
+    form.classList.remove('fade');
+    successMessage.classList.add('hidden');
+    successMessage.classList.remove('fade', 'in');
+    formError.classList.add('hidden');
+    form.reset();
+}
 
-    popup.classList.add('active');
+function closePopup() {
+    document.querySelector('.popup').classList.remove('active');
+    form.classList.add('hidden');
+    successMessage.classList.add('hidden');
+    formError.classList.add('hidden');
+}
 
-    closeButton.onclick = () => {
-    popup.classList.remove('active');
+closebtn.onclick = closePopup;
+successCloseButton.onclick = closePopup;
+
+const inputFields = {
+    name: {
+        element: document.getElementById('name'),
+        regex: /^[A-Za-zÅÄÖåäö\s]{2,50}$/,
+        message: "Enter a name",
+    },
+    email: {
+        element: document.getElementById('email'),
+        regex: /^[A-Za-zÅÄÖåäö0-9._%+-]+@[A-Za-zÅÄÖåäö0-9.-]+\.[A-Za-z]{1,50}$/,
+        message: "Enter a email address",
+    },
+    phone: {
+        element: document.getElementById('phone'),
+        regex: /^[0-9]{1,20}$/,
+        message: "Enter a phone number",
+    },
+    address: {
+        element: document.getElementById('address'),
+        regex: /^[A-Za-zÅÄÖåäö0-9\s.,-]{2,50}$/,
+        message: "Enter a address",
+    },
+    postalnr: {
+        element: document.getElementById('postalnr'),
+        regex: /^[0-9]{5}$/,
+        message: "Enter a postal number",
+    },
+    county: {
+        element: document.getElementById('county'),
+        regex: /^[A-Za-zÅÄÖåäö\s.,-]{2,20}$/,
+        message: "Enter a county",
     }
 }
 
-const form = document.getElementById('orderForm');
+function validateFields(field) {
+    const value = field.element.value.trim();
+    const errorelement = field.element.parentElement.querySelector('.errorMessage');
+
+    if (!field.regex.test(value)) {
+        field.element.classList.remove("inputCorrect");
+        field.element.classList.add("inputWrong");
+        errorelement.textContent = field.message;
+        return false;
+    } else {
+        field.element.classList.remove("inputWrong");
+        field.element.classList.add("inputCorrect");
+        errorelement.textContent = "";
+        return true;
+    }
+}
+
+Object.values(inputFields).forEach((field) => {
+    field.element.addEventListener('input', () => validateFields(field));
+})
+
 form.addEventListener('submit', (e) => {
+    e.preventDefault();
     let valid = true;
 
-    const nameRegex = /^[A-Za-zÅÄÖåäö\s]{2,50}$/;
-    const emailRegex = /^[A-Za-zÅÄÖåäö0-9._%+-]+@[A-Za-zÅÄÖåäö0-9.-]+\.[A-Za-z]{2,50}$/;
-    const phoneRegex = /[0-9]{1,20}]/;
-    const addressRegex = /^[A-Za-zÅÄÖåäö\s]{2,50}$/;
-    const postalnrRegex = /[0-9]{5}]/;
-    const countyRegex = /[A-Za-zÅÄÖåäö]{2,20}/;
+    Object.values(inputFields).forEach((field) => {
+        if (!validateFields(field)) {
+            valid = false;
+        }
+    })
 
-    const name = document.getElementById('name');
-    const email = document.getElementById('email');
-    const phone = document.getElementById('phone');
-    const address = document.getElementById('address');
-    const postalnr = document.getElementById('postalnr');
-    const county = document.getElementById('county');
-
-    if (!nameRegex.test(name.value)){
-        valid = false;
-    }
-    if (!emailRegex.test(email.value)){
-        valid = false;
-    }
-    if (!phoneRegex.test(phone.value)){
-        valid = false;
-    }
-    if (!addressRegex.test(address.value)){
-        valid = false;
-    }
-    if (!postalnrRegex.test(postalnr.value)){
-        valid = false;
-    }
-    if (!countyRegex.test(county.value)){
-        valid = false;
-    }
-
-    if (!valid){
-        e.preventDefault();
-        alert("Form validation failed");
+    if (valid) {
+        form.classList.remove('in');
+        form.classList.add('hidden');
+        successMessage.classList.remove('hidden');
+        successMessage.classList.add('fade', 'in');
+    } else {
+        formError.classList.remove('hidden');
     }
 })
