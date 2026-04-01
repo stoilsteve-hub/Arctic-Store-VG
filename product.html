@@ -32,47 +32,70 @@
         </div>
     </main>
     <div class="popup" id="OrderPopup">
-        <form class="popupContent" id="OrderForm">
-            <h1>Billing Form</h1>
-            <div class="formGroup">
-                <label for="name">Full name</label>
+        <div class="popupContent" id="popupBox">
+            <form id="orderForm">
+                <h1>Billing Form</h1>
+                <div id="formError" class="hidden">
+                    Please fill out the form correctly
+                </div>
+                <div class="formGroup">
+                    <label for="name">Full name</label>
+                    <br>
+                    <input type="text" class="formControl" id="name" placeholder="Enter full name" required>
+                    <br>
+                    <small class="errorMessage"></small>
+                </div>
                 <br>
-                <input type="text" class="formControl" id="name" placeholder="Enter full name" required>
-            </div>
-            <br>
-            <div class="formGroup">
-                <label for="email">Email address</label>
+                <div class="formGroup">
+                    <label for="email">Email address</label>
+                    <br>
+                    <input type="text" class="formControl" id="email" placeholder="Enter email" required>
+                    <br>
+                    <small class="errorMessage"></small>
+                </div>
                 <br>
-                <input type="text" class="formControl" id="email" placeholder="Enter email" required>
-            </div>
-            <br>
-            <div class="formGroup">
-                <label for="phone">Phone number</label>
+                <div class="formGroup">
+                    <label for="phone">Phone number</label>
+                    <br>
+                    <input type="text" class="formControl" id="phone" placeholder="Enter phone number" required>
+                    <br>
+                    <small class="errorMessage"></small>
+                </div>
                 <br>
-                <input type="text" class="formControl" id="phone" placeholder="Enter phone number" required>
-            </div>
-            <br>
-            <div class="formGroup">
-                <label for="address">Address</label>
+                <div class="formGroup">
+                    <label for="address">Address</label>
+                    <br>
+                    <input type="text" class="formControl" id="address" placeholder="Enter address" required>
+                    <br>
+                    <small class="errorMessage"></small>
+                </div>
                 <br>
-                <input type="text" class="formControl" id="address" placeholder="Enter address" required>
-            </div>
-            <br>
-            <div class="formGroup">
-                <label for="postalnr">Postal number</label>
+                <div class="formGroup">
+                    <label for="postalnr">Postal number</label>
+                    <br>
+                    <input type="text" class="formControl" id="postalnr" placeholder="Enter postal number" required>
+                    <br>
+                    <small class="errorMessage"></small>
+                </div>
                 <br>
-                <input type="text" class="formControl" id="postalnr" placeholder="Enter postal number" required>
-            </div>
-            <br>
-            <div class="formGroup">
-                <label for="county">County</label>
+                <div class="formGroup">
+                    <label for="county">County</label>
+                    <br>
+                    <input type="text" class="formControl" id="county" placeholder="Enter County" required>
+                    <br>
+                    <small class="errorMessage"></small>
+                </div>
                 <br>
-                <input type="text" class="formControl" id="county" placeholder="Enter County" required>
+                <button type="submit" class="orderButton">Submit</button>
+                <button type="button" class="closeButton">Close</button>
+            </form>
+
+            <div id="successMessage" class="hidden">
+                <h2>Thank you for your purchase!</h2>
+                <p>It is now safe to close</p>
+                <button type="button" id="successCloseButton">Close</button>
             </div>
-            <br>
-            <button type="submit" class="orderButton">Submit</button>
-            <button type="button" class="closeButton">Close</button>
-        </form>
+        </div>
     </div>
 
     <!-- scripts -->
