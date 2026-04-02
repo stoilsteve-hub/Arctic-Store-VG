@@ -1,5 +1,5 @@
 const productGrid = document.getElementById("productGrid");
-fetch("https://raw.githubusercontent.com/stoilsteve-hub/Arctic-Store/main/fakestore.json")
+fetch("../../fakestore.json")
     .then((res) => res.json())
     .then((products) => {
 
