@@ -123,6 +123,10 @@ body>header h1 {
     pointer-events: auto;
 }
 
+#successMessage {
+    text-align: center;
+}
+
 .popup button {
     display: block;
     width: 100%;
