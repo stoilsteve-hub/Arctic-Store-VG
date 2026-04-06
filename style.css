@@ -145,6 +145,10 @@ body>header h1 {
      background-color: #1e70d1;
 }
 
+.inputBase {
+    border: 1px solid lightsteelblue;
+}
+
 .inputWrong {
     border: 2px solid red;
 }

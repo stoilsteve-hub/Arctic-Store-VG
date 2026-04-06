@@ -12,6 +12,12 @@ function showOrderPopup() {
     successMessage.classList.remove('fade', 'in');
     formError.classList.add('hidden');
     form.reset();
+    Object.values(inputFields).forEach((field) => {
+        field.element.classList.remove("inputWrong", "inputCorrect");
+        field.element.classList.add("inputBase");
+        const errorElement = field.element.parentElement.querySelector('.errorMessage');
+        errorElement.textContent = "";
+    })
 }
 
 function closePopup() {
