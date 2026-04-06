@@ -21,10 +21,13 @@ function showOrderPopup() {
 }
 
 function closePopup() {
-    document.querySelector('.popup').classList.remove('active');
-    form.classList.add('hidden');
-    successMessage.classList.add('hidden');
-    formError.classList.add('hidden');
+    const popup = document.querySelector('.popup');
+    popup.classList.remove('active');
+    setTimeout(() => {
+        form.classList.add('hidden');
+        successMessage.classList.add('hidden');
+        formError.classList.add('hidden');
+    }, 400);
 }
 
 closebtn.onclick = closePopup;
