@@ -1,6 +1,35 @@
+#allCategoryButtons {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    flex-wrap: wrap;
+    left: 0;
+    width: 100%;
+    background-color: #2D8CFF;
+    color: white;
+    padding: 8px 0;
+    min-height: fit-content;
+
+    z-index: 999;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    border: 2px solid transparent;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    top: 80px
+}
+.catButton {
+    background-color: white;
+}
+.catButton:hover{
+    background-color: darkblue;
+    color: white;
+}
+
+
 .col {
     padding-bottom: 10px;
 }
+
 
 .grid-card {
     background-color: white;
@@ -59,7 +88,8 @@
 .grid-card:hover .grid-button {
     opacity: 1;
 }
-.grid-button:hover{
+
+.grid-button:hover {
     background-color: #1e70d1;
 }
 
