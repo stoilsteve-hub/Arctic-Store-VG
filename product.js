@@ -33,24 +33,9 @@ async function getProduct() {
         </div>
     `;
 
-    // order button logic
     const orderBtn = document.getElementById('order-btn');
     orderBtn.addEventListener('click', () => {
-        // save data for lukas
-        const productData = {
-            id: product.id,
-            title: product.title,
-            price: product.price,
-            image: product.image
-        };
-        localStorage.setItem('selectedProduct', JSON.stringify(productData));
-
-        // redirect to order page
-
-
-        //window.location.href = 'js/Order popup/orderTest.html';
-        showOrderPopup();
-
+        addToCart(product.id, product.title, product.price, product.image);
     });
 }
 

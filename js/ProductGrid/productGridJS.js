@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             <img src="${product.image}" class="grid-card-img-top img-fluid"></img>
                             <div class="grid-card-body">
                                 <p class="grid-card-price">${product.price}€</p>
-                                <button class="grid-button">
+                                <button class="grid-button" onclick="event.preventDefault(); addToCart('${product.id}', '${product.title.replace(/'/g, "\\'")}', ${product.price}, '${product.image}')">
                                     Order
                                 </button>
                             </div>
