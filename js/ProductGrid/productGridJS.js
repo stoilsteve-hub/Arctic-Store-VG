@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     showProducts('all');
 
     // IF FAKESTOREAPI
-        function getCategories() {
+/*         function getCategories() {
             fetch("https://fakestoreapi.com/products/categories")
                 .then((res) => res.json())
                 .then(categories => {
@@ -23,26 +23,24 @@ document.addEventListener("DOMContentLoaded", () => {
                     })
                     categoryBar.appendChild(getAllButton());
                 })
-        } 
+        }  */
 
     // IF FAKESTORE.JSON
- /*    function getCategories() {
+    function getCategories() {
         const categories = [];
         fetch("../../fakestore.json")
             .then((res) => res.json())
             .then(products => {
                 products.forEach(product => {
-                    console.log("product.category: " + product.category)
-                    const exists = false;
+                    let exists = false;
                     if (categories.length === 0) {
-                        categories.push(product.category)
-                    }
-                    else {
+                        categories.push(product.category);
+                    } else {
                         categories.forEach(p => {
                             if (p === product.category) {
                                 exists = true;
                             }
-                        })
+                        });
                     }
                     if (!exists) {
                         const cat = product.category;
@@ -51,14 +49,15 @@ document.addEventListener("DOMContentLoaded", () => {
                         catButton.className = "btn m-1 catButton";
                         catButton.textContent = cat;
                         catButton.addEventListener('click', () => {
-                            showProducts(cat)
+                            showProducts(cat);
                         });
                         categoryBar.appendChild(catButton);
+                        categories.push(product.category);
                     }
                 })
-            })
+            });
         categoryBar.appendChild(getAllButton());
-    } */
+    }
 
     function getAllButton() {
         const catButton = document.createElement('button');
@@ -72,8 +71,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function showProducts(category) {
-        fetch("https://fakestoreapi.com/products")
-        //fetch("../../fakestore.json")
+        //fetch("https://fakestoreapi.com/products")
+        fetch("../../fakestore.json")
             .then((res) => res.json())
             .then((products) => {
                 const allProducts = getProductSubset(products, category);
